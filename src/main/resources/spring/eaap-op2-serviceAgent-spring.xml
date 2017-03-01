@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+<!-- 
+    <bean id="serviceAgentpropertyConfigurer" class="com.ailk.eaap.o2p.common.spring.config.EncryptPropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+        <property name="locations">
+            <list>
+                <value>classpath:eaap_common.properties</value>
+                <value>classpath:apiActiveQueue.properties</value>
+            </list>
+        </property>
+    </bean>
+ -->
+ 
+    <bean class="com.ailk.eaap.o2p.common.spring.config.O2pPropertyPlaceholderConfigurer">
+        <property name="remoteOverride" value="true"></property>
+        <property name="cacheHolder" ref="cacheHolder"></property>
+    </bean>
+    
+    <bean id="cacheHolder" class="com.ailk.eaap.o2p.common.spring.config.ZKCfgCacheHolder">
+        <property name="ignoreResourceNotFound" value="true"></property>
+    </bean>
+    
+    <bean id="DEPService" class="com.ailk.eaap.op2.serviceagent.servlet.EAAPService">
+        <property name="dihService"><ref bean="dihService"/></property>
+    </bean>
+
+    <bean id="RESTService" class="com.ailk.eaap.op2.serviceagent.servlet.RESTService">
+        <property name="dihService"><ref bean="dihService"/></property>
+    </bean>
+  
+    <bean id="component" class="org.restlet.ext.spring.SpringComponent">  
+        <!-- <property name="defaultTarget" ref="restRouter" />  -->
+        <property name="defaultTarget" ref="restRouter" />
+    </bean>
+
+    <bean id="webservicecomponent" class="org.restlet.ext.spring.SpringComponent">  
+        <!-- <property name="defaultTarget" ref="restRouter" />  -->
+        <property name="defaultTarget" ref="webserviceRouter" />
+    </bean>
+    
+    
+    <bean id="webserviceRouter" class="org.restlet.ext.spring.SpringBeanRouter"> 
+     <property name="attachments">  
+            <map>
+                <entry key="/{apiName}">  
+                    <value>webserviceResource</value>  
+                </entry>
+                <entry key="">  
+                    <value>webserviceResource</value>  
+                </entry>  
+            </map>
+              
+        </property>  
+    </bean>  
+    
+    <!-- router -->  
+    <bean id="restRouter" class="org.restlet.ext.spring.SpringBeanRouter"> 
+     <property name="attachments">  
+            <map>
+                <entry key="/{apiName}">  
+                    <value>componentResource</value>  
+                </entry>
+                <entry key="">  
+                    <value>componentResource</value>  
+                </entry>  
+            </map>
+              
+        </property>  
+    </bean>  
+    <!-- resource -->  
+    <bean name="componentResource" id="componentResource"   class="com.ailk.eaap.op2.serviceagent.servlet.ComponentResource" scope="prototype">
+        <property name="dihService"><ref bean="dihService"/></property>
+        <!-- <property name="agentFeeDao"><ref bean="agentFeeDao"/></property> -->
+    </bean>
+
+    <bean name="webserviceResource" id="webserviceResource"   class="com.ailk.eaap.op2.serviceagent.servlet.WebServiceResource" scope="prototype">
+        <property name="dihService"><ref bean="dihService"/></property>
+        <property name="routeServ"><ref bean="routeServ"/></property>
+        <property name="flowControlServ"><ref bean="flowcontrol"/></property>
+        <property name="messageLogService"><ref bean="messageLogService"/></property>
+    </bean>
+
+    
+    <bean id="dihService" class="com.ailk.eaap.op2.serviceagent.deal.service.DIHService">
+        <property name="messageLogService"><ref bean="messageLogService"/></property>
+        <property name="baseValidateServ"><ref bean="baseValidateServ"/></property>
+        <property name="routeServ"><ref bean="RouteServ"/></property>
+        <property name="flowControlServ"><ref bean="flowcontrol"/></property>
+        <property name="defalutHead">
+            <value>${defalutHead}</value>
+        </property>
+    </bean>
+    
+<!-- 
+    <bean id="generalService" class="com.ailk.eaap.op2.serviceagent.deal.service.GeneralService">
+        
+        <property name="routeServ"><ref bean="RouteServ"/></property>
+        <property name="flowControlServ"><ref bean="flowcontrol"/></property>
+        <property name="messageLogService"><ref bean="messageLogService"/></property>
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="validateServ"><ref bean="validateServ"/></property>
+    </bean>
+  -->
+     
+    <bean id="baseValidateServ" class="com.ailk.eaap.op2.serviceagent.validate.service.BaseValidateServ">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="validateServ"><ref bean="validateServ"/></property>
+        <property name="defalutHead">
+            <value>${defalutHead}</value>
+        </property>
+    </bean>
+    
+     
+    <bean id="ServiceExchangeService"
+        class="com.ailk.eaap.op2.serviceagent.route.service.ServiceExchangeService">
+        <property name="processorFactory">
+            <ref bean="ProcessorFactory"/>
+        </property>
+       <property name="defaultTime">
+            <value>${defaultTime}</value>
+        </property>
+        <property name="serviceAgentMode">
+            <value>${serviceAgent.mode}</value>
+        </property>
+        <property name="serviceAgentServerAddress">
+            <value>${serviceAgent.server.address}</value>
+        </property>
+    </bean>
+ 
+    <bean id="RouteServ"
+        class="com.ailk.eaap.op2.serviceagent.route.service.RouteServ">
+        <property name="messageLogService"><ref bean="messageLogService"/></property>
+        <property name="serviceExchangeService">
+            <ref bean="ServiceExchangeService"/>
+        </property>
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="evaluatorFactory"><ref bean="evaluatorFactory"/></property>
+        <property name="batchService"><ref bean="batchService"/></property>
+        <property name="taskExecutor"><ref bean="taskExecutor"/></property>
+        <property name="messageBoHisSer"><ref bean="messageBoHisSer"/></property>
+		<property name="collectingActiveMq"><ref bean="activeMqProducer"/></property>
+    </bean>
+    
+    <bean id="evaluatorFactory" class="com.ailk.eaap.op2.serviceagent.route.service.EvaluatorFactory">
+    </bean>
+    
+    <bean id="ProcessorFactory"
+        class="com.ailk.eaap.op2.serviceagent.route.service.ProcessorFactory">
+        
+        <property name="nodeDescValidateServ"><ref bean="nodeDescValidateServ"/></property>
+        <property name="callEndpointProcessor"><ref bean="callEndpointProcessor"/></property>
+        <property name="jMSSenderEndpointProcessor"><ref bean="jMSSenderEndpointProcessor"/></property>
+        <property name="jMSReceiverEndpointProcessor"><ref bean="jMSReceiverEndpointProcessor"/></property>
+        <property name="jMSTopicProcessor"><ref bean="jMSTopicProcessor"/></property>
+        
+        <property name="jMSTopicProducerProcessor"><ref bean="jMSTopicProducerProcessor"/></property>
+        <property name="obscureProcessor"><ref bean="obscureProcessor"/></property>
+        <property name="generateTokenProcessor"><ref bean="generateTokenProcessor"/></property>
+        <property name="inProcessor"><ref bean="InProcessor"/></property>
+        <property name="authProcessor"><ref bean="authProcessor"/></property>
+        <property name="jdbcEndpointProcessor"><ref bean="jdbcEndpointProcessor"/></property>
+        <property name="encryptProcessor"><ref bean="encryptProcessor"/></property>
+        <property name="asynProcessor"><ref bean="asynProcessor"/></property>
+        <property name="batchParseProcessor"><ref bean="batchParseProcessor"/></property>
+        <property name="circleEndpointProcessor"><ref bean="circleEndpointProcessor"/></property>
+        
+        <property name="socketCallProcesssor"><ref bean="socketCallProcesssor"/></property>
+        <property name="endProcessor"><ref bean="endProcessor"/></property>
+        <property name="accessTypeProcesssor"><ref bean="accessTypeProcesssor"/></property>
+        <property name="mapEnrichProcessor"><ref bean="mapEnrichProcessor"/></property>
+        <property name="orderDealProcessor"><ref bean="orderDealProcessor"/></property>
+        <property name="interceptionProcessor"><ref bean="interceptionProcessor"/></property>
+        <property name="templateReplaceProcessor"><ref bean="templateReplaceProcessor"/></property>
+       <property name="zipFileEndPointProcessor" ref="zipFileEndPointProcessor"></property> 
+        <property name="dynamicJdbcProcessor" ref="dynamicJdbcProcessor"></property>
+        <property name="downloadProcessor" ref="downloadProcessor"></property>
+        <property name="filePublishProcessor" ref="filePublishProcessor"></property>
+        <property name="fileSubscribeProcessor" ref="fileSubscribeProcessor"></property>
+        <property name="fileMoveV2Processor" ref="fileMoveV2Processor"></property>
+        <property name="pluginsCallProcessor" ref="pluginsCallProcessor"></property>
+        <property name="flatFileReaderEndpoint" ref="flatFileReaderEndpoint"></property>
+        <property name="xmlFileReaderEndpoint" ref="xmlFileReaderEndpoint"></property>
+    <!--
+        <property name="fileChkProcessor" ref="fileChkProcessor"></property>
+        <property name="fileAdapterProcessor" ref="fileAdapterProcessor"></property>
+     -->  
+        <property name="transformerProcessor" ref="transformerProcessor"></property>
+    </bean>
+    <bean id="authProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.AuthProcessor">
+    </bean>
+    
+    <!-- 插件调用接口 -->
+    <bean id="pluginsCallProcessor" class="com.ailk.eaap.op2.serviceagent.route.service.PluginsCallProcessor">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    
+     <!-- 远程调用接受接口 -->
+    <bean id ="remoteCallEpService" class="com.ailk.eaap.op2.serviceagent.remotecall.impl.RemoteCallEpImpl">
+        <property name="serviceExchangeService">
+            <ref bean="ServiceExchangeService"/>
+        </property>
+    </bean>
+    
+    <bean id="InProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.InProcessor">
+    </bean>
+    
+    <bean id="endProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.EndProcessor">
+    </bean>
+    <bean id="accessTypeProcesssor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.AccessTypeProcesssor">
+    </bean>
+    <bean id="flowcontrol"
+        class="com.ailk.eaap.op2.serviceagent.validate.service.FlowControlServ">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    <bean id="validateServ"
+        class="com.ailk.eaap.op2.serviceagent.validate.service.ValidateServ">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    <bean id="proofService"
+        class="com.ailk.eaap.op2.serviceagent.validate.service.ProofServ">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="cacheFactory"><ref bean="cacheFactory"/></property>
+    </bean>
+    <bean id="nodeDescValidateServ"
+        class="com.ailk.eaap.op2.serviceagent.validate.service.NodeDescValidateServ">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="validateServ"><ref bean="validateServ"/></property>
+    </bean>
+        
+     <bean id="downloadProcessor" class="com.ailk.eaap.o2p.route.DownloadProcessor">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="downloadTempDir">
+            <value>${subpub.temp.download.dir}</value>
+        </property>
+       
+      </bean>
+    
+     <bean id="filePublishProcessor" class="com.ailk.eaap.o2p.route.FilePublishProcessor">
+     </bean>
+     
+    <bean id="zipFileEndPointProcessor" class="com.ailk.eaap.o2p.route.ZipFileEndPointProcessor" />
+     
+    <bean id="fileSubscribeProcessor" class="com.ailk.eaap.o2p.route.FileSubscribeProcessor">
+    </bean>
+    
+    <bean id="fileMoveV2Processor" class="com.ailk.eaap.o2p.route.FileMoveV2Processor">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+         <property name="backupTempDir">
+            <value>${subpub.temp.backup.dir}</value>
+        </property>
+        
+     </bean>
+    
+    <!-- transformer v2 -->
+    <bean id="transformerProcessor"
+        class="com.ailk.eaap.integration.o2p.serviceagent.endpoint.TransformerEndpointProcessor">
+        <property name="transformerRuleService"><ref bean="transformerRuleService"/></property>
+        
+    </bean>    
+    <bean id="obscureProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.ObscureProcessor">
+    </bean>
+    <bean id="jdbcEndpointProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.JdbcEndpointProcessor">
+    </bean>
+    
+    <bean id="generateTokenProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.GenerateTokenProcessor">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <!-- <property name="appAccTokenDao"><ref bean="appAccTokenDao"/></property> -->
+    </bean>
+    
+    <bean id="dstFlowControlServ"
+        class="com.ailk.eaap.op2.serviceagent.validate.service.DstFlowControlServ">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    
+    <bean id="batchParseProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.BatchParseProcessor">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <!--  
+        <property name="defalutHead">
+            <value>${defalutHead}</value>
+        </property>-->
+        <property name="defalutHead">
+            <value>TcpCont</value>
+        </property>
+    </bean>
+    
+<!--     <bean id="xdmClientTemplate" class="com.linkage.crmdep.xdp.XdmClientTemplate"> -->
+<!--    </bean> -->
+    
+<!-- 
+    <bean id="timeOutControlServ"
+        class="com.ailk.eaap.op2.serviceagent.route.service.TimeOutControlServ">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="url"><value>${url}</value></property>
+    </bean>
+ -->
+    
+    
+     <bean id="encryptProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.EncryptProcessor">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    
+     <bean id="callEndpointProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.CallEndpointProcessor">
+        <property name="dstFlowControlServ"><ref bean="dstFlowControlServ"/></property>
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <!-- 
+        <property name="timeOutControlServ"><ref bean="timeOutControlServ"/></property>
+         -->
+         <property name="cacheFactory"><ref bean="cacheFactory"/></property>
+        <property name="defaultTime"><value>${CALL.EP.CONN_DEFAULT_TIMEOUT}</value></property>
+        
+    </bean>
+    
+    <bean id="socketCallProcesssor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.SocketCallProcessor">
+        <property name="tcpFactory"><ref bean="tcpFactory"/></property>
+        <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    
+    <bean id="tcpFactory"
+        class="com.ailk.eaap.op2.serviceagent.socket.tcp.connection.TcpConnectionFactoryBean">
+    </bean>
+    
+    <bean id="asynProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.AsynProcessor">
+        <property name="queueIHelper"><ref bean="asynQueueHelper"/></property>
+    </bean>
+    
+    <bean id="dynamicJdbcProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.DynamicJdbcProcessor">
+        <property name="sqlExcutorService"><ref bean="sqlExcutorService"/></property>
+        <property name="jdbcTemplateCache"><ref bean="jdbcTemplateCache"/></property>
+        <property name="downloadTempDir">
+            <value>${subpub.temp.download.dir}</value>
+        </property>
+    </bean>
+    
+    <bean id="circleEndpointProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.CircleEndpointProcessor">
+        <property name="routeServ"><ref bean="RouteServ"/></property>
+    </bean>
+    
+    <bean id="mapEnrichProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.MapEnrichProcessor">
+        
+    </bean>
+    
+    <bean id="interceptionProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.InterceptionProcessor">
+    </bean>
+    
+    <bean id="templateReplaceProcessor"
+        class="com.ailk.eaap.op2.serviceagent.route.service.TemplateReplaceProcessor">
+    </bean>
+    
+    <bean id="orderDealProcessor"
+     class="com.ailk.eaap.op2.serviceagent.route.service.OrderDealProcessor">
+         <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    <bean id="asynQueueHelper" class="com.ailk.eaap.op2.common.JavaQueueHelper">
+        <property name="javaQueue"><ref bean="asynJavaQueue"/></property>
+    </bean>
+    
+    <bean id="asynJavaQueue" class="com.ailk.eaap.op2.common.JavaQueue">
+    </bean>
+    
+    <bean id="dynamicJdbcDao" class="com.ailk.eaap.op2.serviceagent.route.jdbc.dao.impl.DynamicJdbcDaoImpl">
+        <property name="cacheFactory"><ref bean="cacheFactory"/></property>
+    </bean>
+    <!-- 
+    <bean id="serviceAgentCore.sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+        <property name="sqlMapClient" ref="serviceAgentCore.sqlMapClient" />
+    </bean>
+    <bean id="serviceAgentCore.sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="dataSource" ref="common-dataSource" />
+        <property name="configLocation" value="classpath:com/ailk/eaap/integration/o2p/core/dao/sqlMapConfig.xml" />
+    </bean> -->
+    <!-- 
+    <bean id="jdbcTemplate.cache" factory-bean="cacheFactory" factory-method="getConcurrentHashMap">
+    </bean>
+     -->
+    
+    <bean id="jdbcTemplateCache" class="com.ailk.eaap.op2.serviceagent.route.jdbc.JdbcTemplateCache"  init-method="initJdbcTemplateCache">
+        <property name="dynamicJdbcDao" ref="dynamicJdbcDao"></property>
+        <property name="jdbcTemplateFactory"><ref bean="jdbcTemplateFactory"/></property>
+        
+    </bean>
+    
+    <bean id="sqlExcutorService" class="com.ailk.eaap.op2.serviceagent.route.jdbc.SqlExcutorServiceImpl">
+        <property name="dynamicJdbcDao" ref="dynamicJdbcDao"></property>
+    </bean>
+    <bean id="jdbcTemplateFactory" class="com.ailk.eaap.op2.serviceagent.route.jdbc.JdbcTemplateFactory">
+    </bean>
+    
+    <bean id="asynThreadManagerService"
+        class="com.ailk.eaap.op2.serviceagent.async.AsynThreadManagerServiceImpl">
+        <property name="queueIHelper">
+            <ref bean="asynQueueHelper"/>
+        </property>
+        <property name="routeServ">
+            <ref bean="RouteServ"/>
+        </property>
+        <property name="threadNum">
+            <value>${threadnum}</value>
+        </property>
+        <property name="defalutHead">
+            <value>${defalutHead}</value>
+        </property>
+    </bean>
+    
+    <bean id="techTask" class="com.ailk.eaap.op2.serviceagent.task.TechTaskJob" >
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="routeServ"><ref bean="RouteServ"/></property>
+        <property name="messageLogService"><ref bean="messageLogService"/></property>
+    </bean>
+    
+    <bean id="taskListener" class="com.ailk.eaap.op2.serviceagent.task.TaskListener" >
+        <property name="taskJobService"><ref bean="techTask"/></property>
+    </bean>
+    
+    
+    
+    
+    <bean id ="taskThreadManager"  class="com.ailk.eaap.op2.serviceagent.task.TaskThreadManager" >
+        <property name ="threadNum"><value>1</value></property>
+        <property name="taskListeners">
+            <list>
+             <ref bean="taskListener"/>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="protocolValidateSer" class="com.ailk.eaap.op2.serviceagent.validate.service.ProtocolValidateServ">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    <bean id="responseTemplate" class="com.ailk.eaap.op2.serviceagent.protocol.response.ResponseTemplateImpl">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="freeMarkerTemplate"><ref bean="freeMarkerTemplate"/></property>
+    </bean>
+    <bean id="freeMarkerTemplate" class="com.ailk.eaap.op2.serviceagent.protocol.FreeMarkerTemplate">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    <bean id="freeMarkerValidateServiceImpl" class="com.ailk.eaap.op2.serviceagent.protocol.FreeMarkerValidateServiceImpl">
+        <property name="freeMarkerTemplate"><ref bean="freeMarkerTemplate"/></property>
+    </bean>
+    <!-- socket server
+    <bean id="socketServer" class="com.ailk.eaap.op2.serviceagent.socket.SSLSocketServer">
+        <property name="keystore"><value>${keystore}</value></property>
+        <property name="keystorePasswd"><value>${keystoreWd}</value></property>
+        <property name="port"><value>${socketPort}</value></property>
+        <property name="sSLSocketServerHandler"><ref bean="sSLSocketServerHandler"/></property>
+    </bean>
+    <bean id="sSLSocketServerHandler" class="com.ailk.eaap.op2.serviceagent.socket.SSLSocketServerHandler">
+        <property name="socketServiceProxy"><ref bean="socketServiceProxy"/></property>
+    </bean>
+    <bean id="socketServiceProxy" class="com.ailk.eaap.op2.serviceagent.socket.SocketServiceProxy">
+        <property name="socketController"><ref bean="socketController"/></property>
+    </bean> -->
+    
+    <bean id="messageBoHisSer" class="com.ailk.eaap.op2.serviceagent.deal.service.MessageBoHisServiceImpl">  
+    </bean>
+    
+    <bean id="messageLogService" class="com.ailk.eaap.op2.serviceagent.log.MessageLogService">
+        <property name="serviceAgentMode"><value>${serviceAgent.mode}</value></property>
+        <property name="messageBoHisSer"><ref bean="messageBoHisSer"/></property>
+        <property name="logDealServ"><ref bean="logDealServ"/></property>
+        <property name="messageLogLevelService"><ref bean="messageLogLevelService"/></property>
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        
+    </bean>
+    
+    <bean id="messageLogLevelService" class="com.ailk.eaap.op2.serviceagent.log.MessageLogLevelService">
+        <property name="cacheService" ref="cacheService"></property>
+    </bean>
+    <bean id="contractBodySer" class="com.ailk.eaap.integration.o2p.contractbody.service.ContractBodyServiceImpl">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="protocolValidateSer"><ref bean="protocolValidateSer"/></property>
+    </bean>
+    
+    <bean id="taskCacheService" class="com.ailk.eaap.op2.serviceagent.taskflag.impl.TaskCacheService">
+        <property name="cacheFactory"><ref bean="cacheFactory"/></property>
+    </bean>
+    
+    <!--这个bean是作为切面    -->
+    <bean id="messageBoHisAspect" class="com.ailk.eaap.op2.serviceagent.aop.MessageBOHisAspect">
+        <property name="messageBoHisSer"><ref bean="messageBoHisSer"/></property>
+        <property name="contractBodySer"><ref bean="contractBodySer"/></property>
+    </bean>
+    
+     <aop:config>
+        <aop:aspect ref="messageBoHisAspect">
+            <aop:pointcut id="exchange" expression="execution(* com.ailk.eaap.op2.serviceagent.route.service.ServiceExchangeService.exchange(..))"/>
+            <aop:pointcut id="route" expression="execution(* com.ailk.eaap.op2.serviceagent.route.service.RouteServ.route(..))"/>
+            <aop:before pointcut-ref="exchange" method="beforeExchange"/> 
+            <aop:after-returning pointcut-ref="exchange" method="afterExchange" arg-names="joinPoint,retValue"   returning="retValue" /> 
+            <aop:after pointcut-ref="route" method="afterRoute"/> 
+        </aop:aspect>
+     </aop:config>
+     
+     <!-- 远程调用判断AOP -->
+     <bean id="remoteCallAspect" class="com.ailk.eaap.op2.serviceagent.aop.RemoteCallAspect">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+     </bean>
+     
+     <aop:config>
+        <aop:aspect ref="remoteCallAspect">
+            <aop:pointcut id="remoteCall" expression="execution(*  com.ailk.eaap.op2.serviceagent.route.service.EndpointProcessor.process(..))"/>
+            <aop:around pointcut-ref="remoteCall" method="aroundExchange"/>
+        </aop:aspect>
+     </aop:config>
+     
+    <bean id="springContextHolder" class="com.asiainfo.foundation.spring.SpringContextHolder" />
+     
+    <bean id="accessToken" class="com.ailk.eaap.op2.serviceagent.auth.action.AccessTokenAction">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="cacheFactory"><ref bean="cacheFactory"/></property>
+    </bean>
+    <bean id="oAuthAction" class="com.ailk.eaap.op2.serviceagent.auth.action.OAuthAction">
+        <property name="cacheService"><ref bean="cacheService"/></property>
+        <property name="cacheFactory"><ref bean="cacheFactory"/></property>
+    </bean>
+    
+    <bean id="authorizeService" class="com.ailk.eaap.op2.serviceagent.oauth.impl.AuthorizeServiceImpl">
+        <property name="cacheFactory"><ref bean="cacheFactory"/></property>
+    </bean>
+    
+    <bean id="authorizeAction" class="com.ailk.eaap.op2.serviceagent.auth.action.AuthorizeAction">
+        <property name="cacheFactory"><ref bean="cacheFactory"/></property>
+        <property name="authorizeService"><ref bean="authorizeService"/></property>
+    </bean>
+    
+    <bean id="oauth2Action" class="com.asiainfo.integration.o2p.serviceAgent.oauth2.action.Oauth2Action">
+    	<property name="partyAuthUrl"><value>${serviceAgent.oauth2.partyAuth.url}</value></property>
+    	<property name="cacheFactory"><ref bean="cacheFactory"/></property>
+        <property name="cacheService"><ref bean="cacheService"/></property>
+    </bean>
+    
+    <!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+</beans>

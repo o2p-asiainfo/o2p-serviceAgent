@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="pardSell" location="0,0" size="0,0">
+    <action name="showPardSellInfo" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="pardSellProduct.jsp" />
+      </result>
+      <result name="successtoIndex">
+        <resourceEdge source="successtoIndex" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="pardSellQuery" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="sellProdInfo.jsp" />
+      </result>
+    </action>
+    <action name="pardSellAdd" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="pardSellProAdd.jsp" />
+      </result>
+      <result name="successtoIndex">
+        <resourceEdge source="successtoIndex" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="showProductInfo" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="pardSellProInfo.jsp" />
+      </result>
+      <result name="successtoIndex">
+        <resourceEdge source="successtoIndex" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="showProdTypeInfo" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="pardTypeInfo.jsp" />
+      </result>
+    </action>
+    <action name="addApplyProd" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="pardSellProAdd.jsp" />
+      </result>
+      <result name="successtoIndex">
+        <resourceEdge source="successtoIndex" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="applyAddProduct" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="pardSellProduct.jsp" />
+      </result>
+      <result name="successtoIndex">
+        <resourceEdge source="successtoIndex" routing="0" target="index.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="pardSellProduct.jsp" path="/pard/pardSellProduct.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/pard/index.jsp" location="0,0" size="0,0" />
+  <webResource name="pardSellProAdd.jsp" path="/pard/pardSellProAdd.jsp" location="0,0" size="0,0" />
+  <webResource name="pardSellProInfo.jsp" path="/pard/pardSellProInfo.jsp" location="0,0" size="0,0" />
+  <webResource name="carProInfo.jsp" path="/pard/carProInfo.jsp" location="0,0" size="0,0" />
+  <webResource name="parProInfo.jsp" path="/pard/parProInfo.jsp" location="0,0" size="0,0" />
+  <webResource name="parCarProInfo.jsp" path="/pard/parCarProInfo.jsp" location="0,0" size="0,0" />
+  <webResource name="sellProdInfo.jsp" path="/pard/sellProdInfo.jsp" location="0,0" size="0,0" />
+  <webResource name="pardTypeInfo.jsp" path="/pard/pardTypeInfo.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" extends="struts-default" namespace="/">
+		<default-action-ref name="pageNotFund"></default-action-ref>
+
+		<global-results>
+            <result name="exception-error">/error.jsp</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping result="exception-error" exception="java.lang.Exception"></exception-mapping>
+        </global-exception-mappings>
+        <action name="pageNotFund">
+			<result>/err404.jsp</result>
+		</action>
+	</package>
+	<!--主struts.xml文件,此文件此用于包含各子系统的struts action配置文件 -->
+     <include file="com/linkage/rainbow/ui/views/action/struts-comm-package.xml" />
+	   <include file="struts/eaap-op2-portal-auth-struts.xml" />
+</struts>

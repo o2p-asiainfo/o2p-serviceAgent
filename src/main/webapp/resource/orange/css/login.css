@@ -1,0 +1,725 @@
+.headerStyle {
+	MARGIN: 0px auto; WIDTH: 980px; HEIGHT: 83px
+}
+.logoLogin {
+	MARGIN-TOP: 12px; WIDTH: 255px; FLOAT: left
+}
+.passPro {
+	WIDTH: 690px; FLOAT: left; HEIGHT: 500px
+}
+.passAcc {
+	WIDTH: 305px; FLOAT: right;HEIGHT: 297px; 
+}
+.help {
+	POSITION: absolute; COLOR: #1979de; FONT-SIZE: 14px; TOP: 35px; RIGHT: 0px; TEXT-DECORATION: none
+}
+.bread {
+	BORDER-BOTTOM: #cfdce5 2px solid; POSITION: relative; LINE-HEIGHT: 34px; TEXT-INDENT: 1em; WIDTH: 960px; BACKGROUND: #e9f6ff; FLOAT: left; HEIGHT: 32px; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.bread SPAN.l {
+	POSITION: absolute; WIDTH: 3px; BACKGROUND: url(/img/v2/reg_c.gif) no-repeat 0px 0px; HEIGHT: 3px; TOP: 0px
+}
+.bread SPAN.r {
+	POSITION: absolute; WIDTH: 3px; BACKGROUND: url(/img/v2/reg_c.gif) no-repeat 0px 0px; HEIGHT: 3px; TOP: 0px
+}
+.bread SPAN.l {
+	LEFT: 0px
+}
+.bread SPAN.r {
+	BACKGROUND-POSITION: 0px -3px; RIGHT: 0px
+}
+.tips {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; FLOAT: left; COLOR: #403f3f; PADDING-TOP: 10px
+}
+.tips P {
+	LINE-HEIGHT: 20px; PADDING-LEFT: 32px; BACKGROUND: url(/img/v2/tips.gif) no-repeat 13px 2px; FLOAT: right; FONT-SIZE: 12px
+}
+.tips P A {
+	COLOR: #1979de
+}
+.passPro DIV {
+	WIDTH: 690px; FLOAT: left; HEIGHT: 220px; OVERFLOW: hidden; -webkit-border-radius: 2px
+}
+.passPro UL {
+	WIDTH: 690px; FLOAT: left; PADDING-TOP: 4px
+}
+.passPro UL LI {
+	WIDTH: 100%; BACKGROUND: url(/img/v2/index_dot.gif) repeat-x left bottom; FLOAT: left; HEIGHT: 70px; OVERFLOW: hidden; PADDING-TOP: 10px
+}
+.passPro UL LI.last {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.passPro UL LI SPAN {
+	MARGIN: 0px 13px 0px 7px; WIDTH: 64px; FLOAT: left; HEIGHT: 70px
+}
+.passPro UL LI H4 {
+	FONT: bold 14px/20px "宋体"; COLOR: #1979de
+}
+.passPro UL LI P {
+	COLOR: #676767
+}
+.passPro P.more {
+	TEXT-ALIGN: right; WIDTH: 100%; FLOAT: left; PADDING-TOP: 10px
+}
+.passPro P.more A {
+	FONT-FAMILY: "宋体"; COLOR: #1979de; TEXT-DECORATION: none
+}
+.passAcc {
+	POSITION: relative
+}
+.passQas {
+	POSITION: relative
+}
+.passAcc {
+	FLOAT: right
+}
+.passAcc DIV.shadow {
+	POSITION: absolute; WIDTH: 300px; BACKGROUND: #ededed; HEIGHT: 295px; TOP: 2px; RIGHT: 0px; _right: 1px;
+}
+.question {
+	MARGIN-BOTTOM: 0px
+}
+.question DIV.shadow {
+	HEIGHT: 170px; BORDER-TOP: #fff 2px solid; TOP: 0px; RIGHT: 0px; _height: 171px
+}
+.pass-error0 {
+	DISPLAY: none
+}
+.pass-error1 {
+	DISPLAY: none
+}
+.pass-error {
+	POSITION: absolute; PADDING-BOTTOM: 3px; PADDING-LEFT: 9px; WIDTH: 196px; PADDING-RIGHT: 9px; DISPLAY: none; BACKGROUND: url(/img/v2/err_bg.png) no-repeat 0px 0px; HEIGHT: 90px; TOP: -90px; PADDING-TOP: 3px; LEFT: 40px
+}
+.pass-error-title {
+	LINE-HEIGHT: 24px; PADDING-LEFT: 2em; DISPLAY: block; BACKGROUND: url(/img/v2/err_bg.png) no-repeat 1px -98px; HEIGHT: 24px; COLOR: #c93737; FONT-WEIGHT: bold
+}
+.pass-error-a {
+	DISPLAY: none; COLOR: #1979de
+}
+.pass-error-close {
+	POSITION: absolute; WIDTH: 13px; BACKGROUND: url(/img/v2/err_bg.png) no-repeat -199px -107px; HEIGHT: 13px; TOP: 8px; CURSOR: pointer; RIGHT: 8px
+}
+.passAccInfo {
+	BORDER-BOTTOM: #cecece 1px solid; POSITION: relative; BORDER-LEFT: #cecece 1px solid; PADDING-BOTTOM: 10px; WIDTH: 301px; BACKGROUND: #fbfbfb; FLOAT: left; BORDER-TOP: #cecece 1px solid; BORDER-RIGHT: #cecece 1px solid; _width: 247px
+}
+.passAccInfoTitle {
+	MARGIN: 0px auto;  font: 18px/1.5 Tahoma, 'Microsoft Yahei', 'Simsun';color: #ff6600;BORDER-BOTTOM: #d2d2d2 1px solid;width:92%;height:35px;
+	TEXT-ALIGN:left;PADDING-TOP:10px;
+}
+.passAccInfo P.accTab {
+	OVERFLOW: hidden; _width: 247px
+}
+.passAccInfo P SPAN.tab {
+	BORDER-BOTTOM: #cecece 1px solid; TEXT-ALIGN: center; WIDTH: 150px; FONT: bold 14px/36px "宋体"; FLOAT: left; HEIGHT: 34px; COLOR: #757575; OVERFLOW: hidden; CURSOR: pointer; _width: 149px
+}
+
+.passAccInfo P SPAN.baseline {
+	BORDER-BOTTOM: #cecece 1px solid; 
+}
+
+.passAccInfo P SPAN.mob {
+	BACKGROUND: #efefef
+}
+.passAccInfo P SPAN.nor {
+	BACKGROUND: #efefef
+}
+.passAccInfo P SPAN.mob:hover {
+	BACKGROUND: url(/img/v2/tab_bg.png) no-repeat left top
+}
+.passAccInfo P SPAN.nor:hover {
+	BACKGROUND: url(/img/v2/tab_bg_n.png) no-repeat right top
+}
+.passAccInfo P SPAN.current {
+	BORDER-BOTTOM: #fbfbfb 1px solid; WIDTH: 150px; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #403f3f
+}
+.passAccInfo P SPAN.current:hover {
+	BORDER-BOTTOM: #fbfbfb 1px solid; WIDTH: 150px; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #403f3f
+}
+.passAccInfo P SPAN.tabline {
+	WIDTH: 1px; BACKGROUND: #cecece; FLOAT: left; HEIGHT: 35px
+}
+
+
+
+.passAccInfo P SPAN.tab B {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 20px; PADDING-RIGHT: 0px; PADDING-TOP: 2px
+}
+.passAccInfo P SPAN.nor B {
+	BACKGROUND: url(/img/v2/tab_ico.png) no-repeat 0px 1px
+}
+.passAccInfo P SPAN.mob B {
+	BACKGROUND: url(/img/v2/tab_ico.png) no-repeat 0px -20px
+}
+.passAccForm {
+	MARGIN: 3px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; BACKGROUND: url(/img/v2/index_dot.gif) repeat-x left bottom; FLOAT: left; CLEAR: both; PADDING-TOP: 10px;height:220px;
+}
+.passAccForm FORM {
+	POSITION: relative
+}
+.passAccForm P {
+	PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+.passAccForm P LABEL {
+	WIDTH: 58px; FLOAT: left
+}
+.passAccForm P LABEL.pass_login_label_rem {
+	FLOAT: none
+}
+.passAccForm P.pass-verifycode A.pass-verifypicchange {
+	TEXT-ALIGN: right; WIDTH: 100%
+}
+.passAccForm P.pass-verifycode LABEL {
+	WIDTH: 58px; FLOAT: left
+}
+.passAccForm P.pass_login_p LABEL {
+	FONT: 14px/30px "宋体"
+}
+.passAccForm P.accVerify LABEL {
+	FONT: 14px/30px "宋体"
+}
+.passAccForm P.pass_login_p LABEL.pass_login_label_rem {
+	FONT: 12px/16px "宋体"
+}
+.passAccForm P.pass-verifycode LABEL {
+	FONT: 14px/30px "宋体"
+}
+.passAccForm P.pass_login_p INPUT {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; PADDING-LEFT: 5px; WIDTH: 155px; FONT: 12px/26px Arial, "宋体"; HEIGHT: 28px; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid; _width: 145px
+}
+.passAccForm P.pass_login_p INPUT.pass_login_input_rem {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; MARGIN: 0px 3px 0px 0px; WIDTH: 14px; HEIGHT: 14px; VERTICAL-ALIGN: sub; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.passAccForm P.accVerify INPUT.ip {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; WIDTH: 60px; FONT: 12px/26px Arial, "宋体"; HEIGHT: 28px; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid; _width: 60px
+}
+.passAccForm P.pass-verifycode INPUT {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; WIDTH: 55px; FONT: 12px/26px Arial, "宋体"; HEIGHT: 28px; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid; _width: 45px
+}
+.passAccForm .pass-verifypic {
+	MARGIN-LEFT: 5px; VERTICAL-ALIGN: top
+}
+.passAccForm .pass-verifypicchange {
+	FLOAT: right
+}
+.passAccForm P SPAN.verifycode {
+	PADDING-LEFT: 58px; WIDTH: 160px; DISPLAY: block; _padding-left: 60px
+}
+.passAccForm P.mespasstip {
+	COLOR: #676767
+}
+.passAccForm P.pass_login_p_des {
+	COLOR: #bbb
+}
+.passAccForm P.pass_login_p_btn INPUT {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; TEXT-INDENT: -100em; WIDTH: 97px; BACKGROUND: url(/img/v2/btn_login.png) no-repeat 0px 0px; FLOAT: left; HEIGHT: 36px; BORDER-TOP: medium none; CURSOR: pointer; BORDER-RIGHT: medium none
+}
+.passAccForm P.pass_login_p_btn A {
+	MARGIN-TOP: 9px; WIDTH: 5em; FLOAT: left; MARGIN-LEFT: 7px
+}
+.passAccReg {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 16px; PADDING-RIGHT: 0px; FLOAT: left; PADDING-TOP: 6px
+}
+.passAccReg H3 {
+	PADDING-BOTTOM: 6px; FONT-SIZE: 14px
+}
+.passAccReg DIV {
+	PADDING-LEFT: 12px; PADDING-TOP: 5px
+}
+.passAccReg A {
+	BORDER-BOTTOM: #c6c6c6 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #c6c6c6 1px solid; LINE-HEIGHT: 29px; WIDTH: 192px; DISPLAY: block; BACKGROUND: url(/img/v2/btn_reg.png) repeat-x 0px 0px; HEIGHT: 29px; COLOR: #474747; BORDER-TOP: #c6c6c6 1px solid; CURSOR: pointer; FONT-WEIGHT: bold; BORDER-RIGHT: #c6c6c6 1px solid; TEXT-DECORATION: none
+}
+.passQaInfo {
+	BORDER-BOTTOM: #cecece 1px solid; POSITION: relative; BORDER-LEFT: #cecece 1px solid; WIDTH: 248px; BACKGROUND: #fbfbfb; HEIGHT: 168px; BORDER-TOP: #cecece 1px solid; BORDER-RIGHT: #cecece 1px solid
+}
+.passQaInfo DL {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 16px; WIDTH: 232px; PADDING-RIGHT: 0px; FLOAT: left; PADDING-TOP: 8px
+}
+.passQaInfo DL DT {
+	PADDING-BOTTOM: 3px; FONT: bold 14px/22px "宋体"
+}
+.passQaInfo DL DD {
+	FONT: 14px/21px "宋体", Arial
+}
+.passQaInfo DL DD I {
+	LINE-HEIGHT: 0; MARGIN: 8px 5px 0px 3px; WIDTH: 3px; FONT-FAMILY: Arial; BACKGROUND: #1979de; FLOAT: left; HEIGHT: 3px; FONT-SIZE: 0px
+}
+.pop-passError {
+	MARGIN-BOTTOM: 3px; HEIGHT: 34px; COLOR: #c93737
+}
+.pop-passError A {
+	COLOR: #1979de; TEXT-DECORATION: underline
+}
+.pop-passError A:link {
+	COLOR: #1979de; TEXT-DECORATION: underline
+}
+.passQaInfo DL DD A {
+	COLOR: #1979de; TEXT-DECORATION: none
+}
+.blank {
+	POSITION: relative; MARGIN-TOP: 2px; WIDTH: 255px; BACKGROUND: #fff; FLOAT: right; HEIGHT: 8px; OVERFLOW: hidden
+}
+#content_reg {
+	PADDING-BOTTOM: 86px; PADDING-LEFT: 135px; WIDTH: 825px; FLOAT: left
+}
+.err_reg {
+	LINE-HEIGHT: 25px; PADDING-LEFT: 5px; DISPLAY: inline-block; FLOAT: left; COLOR: #c93737
+}
+.regVerifyCode {
+	VERTICAL-ALIGN: top
+}
+.passRegForm {
+	WIDTH: 100%; FLOAT: left; PADDING-TOP: 25px
+}
+.passRegForm P {
+	PADDING-BOTTOM: 20px; WIDTH: 100%; FLOAT: left
+}
+.passRegForm P LABEL {
+	TEXT-ALIGN: right; WIDTH: 70px; PADDING-RIGHT: 5px; FLOAT: left; HEIGHT: 26px; FONT-SIZE: 14px; PADDING-TOP: 3px; _padding-top: 5px
+}
+.passRegForm P SPAN.ipt {
+	TEXT-ALIGN: left; WIDTH: 750px; FLOAT: right
+}
+.passRegForm P SPAN.ipt A {
+	LINE-HEIGHT: 24px; DISPLAY: inline-block; COLOR: #1979de
+}
+.passRegForm P SPAN.ipt INPUT {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-LEFT: 2px; WIDTH: 180px; PADDING-RIGHT: 2px; BACKGROUND: #fafafa; FLOAT: left; HEIGHT: 23px; FONT-SIZE: 12px; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid; PADDING-TOP: 0px; _line-height: 24px
+}
+.passRegForm P SPAN.ipt SPAN.suggest I {
+	PADDING-BOTTOM: 2px; FONT-STYLE: normal; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; FLOAT: left; COLOR: #403f3f; PADDING-TOP: 2px
+}
+.passRegForm P SPAN.ipt SPAN.suggest INPUT {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; MARGIN-TOP: 5px; WIDTH: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; HEIGHT: 12px; MARGIN-LEFT: 0px; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.passRegForm P SPAN.ipt INPUT.verifycode {
+	WIDTH: 64px
+}
+.passRegForm P SPAN.ipt SPAN.verifypic {
+	PADDING-LEFT: 5px; FLOAT: left
+}
+.passRegForm P SPAN.nfo {
+	PADDING-BOTTOM: 3px; PADDING-LEFT: 0px; WIDTH: 100%; PADDING-RIGHT: 0px; FLOAT: left; COLOR: #bbb; PADDING-TOP: 3px
+}
+.passRegForm P SPAN.ipt INPUT.regSub {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; TEXT-INDENT: -1000em; WIDTH: 217px; BACKGROUND: url(/img/v2/reg_b.gif) no-repeat 0px 0px; HEIGHT: 36px; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.passRegForm P SPAN.ipt .regAgree {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; WIDTH: 523px; PADDING-RIGHT: 5px; HEIGHT: 56px; COLOR: #7a7a7a; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid; PADDING-TOP: 5px
+}
+.pass_reg_agreement {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; MARGIN: 30px 0px 0px 75px; WIDTH: 531px; HEIGHT: 66px; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+.strength {
+	LINE-HEIGHT: 25px; PADDING-LEFT: 5px; DISPLAY: inline-block; FLOAT: left; COLOR: #403f3f; _padding-top: 7px
+}
+.strength_w {
+	FONT-STYLE: normal
+}
+.strength_s {
+	FONT-STYLE: normal
+}
+.strength_w {
+	COLOR: #c93737
+}
+.strength_s {
+	COLOR: #097c25
+}
+.pwdWeak {
+	WIDTH: 90px; DISPLAY: inline-block; BACKGROUND: #e4e4e4; HEIGHT: 10px; OVERFLOW: hidden
+}
+.pwdWeak #weakLineInner {
+	WIDTH: 0px; DISPLAY: block; BACKGROUND: #59a203; HEIGHT: 10px
+}
+.tooweak {
+	WIDTH: 24px; DISPLAY: inline-block; BACKGROUND: url(/img/v2/wp.gif) repeat-x 0px -7px; FLOAT: left; HEIGHT: 7px; BORDER-RIGHT: #fff 2px solid
+}
+.weak {
+	WIDTH: 24px; DISPLAY: inline-block; BACKGROUND: url(/img/v2/wp.gif) repeat-x 0px -7px; FLOAT: left; HEIGHT: 7px; BORDER-RIGHT: #fff 2px solid
+}
+.strong {
+	WIDTH: 24px; DISPLAY: inline-block; BACKGROUND: url(/img/v2/wp.gif) repeat-x 0px -7px; FLOAT: left; HEIGHT: 7px; BORDER-RIGHT: #fff 2px solid
+}
+.weak {
+	BACKGROUND: url(/img/v2/wp.gif) repeat-x 0px -14px
+}
+.strong {
+	BACKGROUND: url(/img/v2/wp.gif) repeat-x 0px -21px; BORDER-RIGHT: medium none
+}
+.pass_reg_form {
+	POSITION: relative; WIDTH: 100%; FLOAT: left; PADDING-TOP: 25px
+}
+.pass_reg_form P {
+	PADDING-BOTTOM: 20px; WIDTH: 100%
+}
+.pass_reg_form LABEL {
+	TEXT-ALIGN: right; WIDTH: 70px; PADDING-RIGHT: 5px; FLOAT: left; HEIGHT: 26px; FONT-SIZE: 14px; PADDING-TOP: 3px; _padding-top: 5px
+}
+.pass_reg_form P INPUT.pass_reg_input {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-LEFT: 2px; WIDTH: 180px; PADDING-RIGHT: 2px; BACKGROUND: #fafafa; FLOAT: left; HEIGHT: 23px; FONT-SIZE: 12px; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid; PADDING-TOP: 0px; _line-height: 24px
+}
+.pass_reg_form P IMG.pass_reg_verifycode {
+	MARGIN-LEFT: 75px; VERTICAL-ALIGN: middle
+}
+.pass_reg_form P SPAN.pass_reg_change_verifycode {
+	COLOR: #1979de; MARGIN-LEFT: 5px; CURSOR: pointer; TEXT-DECORATION: underline
+}
+.pass_reg_form P SPAN.pass_reg_err {
+	LINE-HEIGHT: 25px; PADDING-LEFT: 5px; DISPLAY: inline-block; FLOAT: left; COLOR: #c93737
+}
+.pass_reg_form P SPAN.pass_reg_generalerror {
+	LINE-HEIGHT: 25px; PADDING-LEFT: 5px; DISPLAY: inline-block; FLOAT: left; COLOR: #c93737
+}
+.pass_reg_form P SPAN.pass_reg_generalerror {
+	PADDING-LEFT: 75px; WIDTH: 100%
+}
+.pass_reg_form P SPAN.pass_reg_des {
+	PADDING-LEFT: 75px; DISPLAY: block; COLOR: #bbb; CLEAR: both
+}
+.pass_reg_form INPUT.pass_reg_submit {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; TEXT-INDENT: -1000em; WIDTH: 217px; DISPLAY: block; BACKGROUND: url(/img/v2/reg_b.gif) no-repeat 0px 0px; HEIGHT: 36px; MARGIN-LEFT: 75px; CLEAR: both; BORDER-TOP: medium none; CURSOR: pointer; BORDER-RIGHT: medium none
+}
+.pass_reg_form P SPAN.ipt .regAgree {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; WIDTH: 523px; PADDING-RIGHT: 5px; HEIGHT: 56px; COLOR: #7a7a7a; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid; PADDING-TOP: 5px
+}
+.pass_reg_form UL.pass_reg_emailautocomplateul {
+	BORDER-BOTTOM: #ccc 1px solid; POSITION: absolute; BORDER-LEFT: #ccc 1px solid; WIDTH: 184px; DISPLAY: block; BACKGROUND: #fff; BORDER-TOP: #ccc 1px solid; TOP: 49px; BORDER-RIGHT: #ccc 1px solid; LEFT: 75px
+}
+.pass_reg_form UL.pass_reg_emailautocomplateul LI {
+	PADDING-BOTTOM: 3px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; WORD-WRAP: break-word; WORD-BREAK: break-all; CURSOR: pointer; PADDING-TOP: 3px
+}
+.pass_reg_form UL.pass_reg_emailautocomplateul LI.active {
+	BACKGROUND: #e2eaff
+}
+.pass_reg_form UL.pass_reg_suggestusernameul {
+	PADDING-BOTTOM: 10px; MARGIN-TOP: -10px; WIDTH: 100%; DISPLAY: inline-block
+}
+.pass_reg_form UL.pass_reg_suggestusernameul LI {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 3px; PADDING-LEFT: 73px; WIDTH: 90%; PADDING-RIGHT: 0px; DISPLAY: inline-block; FLOAT: left; HEIGHT: 24px; OVERFLOW: hidden; PADDING-TOP: 3px
+}
+.pass_reg_form UL.pass_reg_suggestusernameul LI SPAN {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; LINE-HEIGHT: 18px; PADDING-LEFT: 0px; WIDTH: 300px; PADDING-RIGHT: 0px; HEIGHT: auto; COLOR: #403f3f; FONT-SIZE: 14px; PADDING-TOP: 0px
+}
+.pass_reg_form UL.pass_reg_suggestusernameul LI INPUT.pass_reg_suggestuserradio {
+	FLOAT: left
+}
+SPAN.pass_login_err {
+	DISPLAY: none
+}
+P#pass_login_p_generalerror_0 {
+	DISPLAY: none
+}
+P#pass_login_p_generalerror_1 {
+	DISPLAY: none
+}
+#pass_login_verifycode_0 {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; WIDTH: 45px; FONT: 12px/26px Arial, "宋体"; HEIGHT: 28px; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+#pass_login_verifycode_1 {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; WIDTH: 45px; FONT: 12px/26px Arial, "宋体"; HEIGHT: 28px; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+.pass_login_verifycode {
+	MARGIN-TOP: 3px; WIDTH: 80px; HEIGHT: 32px; MARGIN-LEFT: 0px
+}
+#pass_login_p_verifycode_0 {
+	FLOAT: left
+}
+#pass_login_p_img_verifycode_0 {
+	FLOAT: left
+}
+#pass_login_p_verifycode_1 {
+	FLOAT: left
+}
+#pass_login_p_img_verifycode_1 {
+	FLOAT: left
+}
+#pass_login_p_img_verifycode_0 {
+	POSITION: relative; WIDTH: 105px
+}
+#pass_login_p_img_verifycode_1 {
+	POSITION: relative; WIDTH: 105px
+}
+.pass_login_change_verifycode {
+	POSITION: absolute; DISPLAY: block; COLOR: #1979de; TOP: 13px; CURSOR: pointer; RIGHT: -14px; TEXT-DECORATION: underline
+}
+.pass_login_p_rem {
+	MARGIN-LEFT: 58px; CLEAR: both
+}
+.pass_login_p_des {
+	MARGIN-LEFT: 58px; CLEAR: both
+}
+.pass_login_p_btn {
+	MARGIN-LEFT: 58px; CLEAR: both
+}
+.pwdWeak I {
+	DISPLAY: none
+}
+.l2 .pwdWeak .tooweak {
+	DISPLAY: inline-block
+}
+.l1 .pwdWeak .tooweak {
+	DISPLAY: inline-block
+}
+.l1 .pwdWeak .weak {
+	DISPLAY: inline-block
+}
+.l3 .pwdWeak .tooweak {
+	DISPLAY: inline-block
+}
+.l3 .pwdWeak .weak {
+	DISPLAY: inline-block
+}
+.l3 .pwdWeak .strong {
+	DISPLAY: inline-block
+}
+.l1 #weakLineInner {
+	WIDTH: 60px
+}
+.l1 #strength_s {
+	COLOR: #d6a405
+}
+.l2 #weakLineInner {
+	WIDTH: 30px
+}
+.l2 #strength_s {
+	COLOR: #d00000
+}
+.l3 #weakLineInner {
+	WIDTH: 90px
+}
+.l3 #strength_s {
+	COLOR: #59a203
+}
+.pass_reg_p .pass_valid_right {
+	LINE-HEIGHT: 23px; WIDTH: 15px; DISPLAY: inline-block; BACKGROUND: url(/img/v2/binded.png) no-repeat 0px 5px; HEIGHT: 23px; MARGIN-LEFT: 10px
+}
+.pass_reg_err_password {
+	ZOOM: 1; CLEAR: both
+}
+.pass_login_suggestusernameul {
+	BORDER-BOTTOM: #cccccc 1px solid; POSITION: absolute; BORDER-LEFT: #cccccc 1px solid; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 160px; PADDING-RIGHT: 0px; BACKGROUND: #ffffff; BORDER-TOP: #cccccc 1px solid; TOP: 35px; BORDER-RIGHT: #cccccc 1px solid; PADDING-TOP: 0px; LEFT: 58px; _width: 151px; _left: 61px
+}
+.pass_login_suggestusernameul LI {
+	LINE-HEIGHT: 28px; LIST-STYLE-TYPE: none; PADDING-LEFT: 10px; HEIGHT: 28px; FONT-SIZE: 12px; WORD-BREAK: break-all; CURSOR: pointer; LIST-STYLE-IMAGE: none
+}
+.selected_item {
+	BACKGROUND: #f1f1f1
+}
+.block_item {
+	DISPLAY: block
+}
+.hidden_item {
+	DISPLAY: none
+}
+
+
+
+.login_all {
+	width: 840px;
+	margin: auto;
+}
+.login_alllogo {
+	width: 840px;
+	height: 53px;
+	margin-top: 30px;
+}
+.login_allcent {
+	width: 840px;
+	overflow: hidden;
+	text-align:center; vertical-align:middle;
+}
+.login_allcent p {
+	width: 521px;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+.login_allcent_rig {
+	float: left;
+no-repeat;
+	width: 319px;
+	height: 396px;
+}
+.login_allcent_rig h1 {
+	font-size: 16px;
+	color: #19255a;
+	line-height: 70px;
+	height: 70px;
+	font-family: "微软雅黑";
+	text-align: center;
+	font-weight: bold;
+}
+.login_allcent_rigcenter {
+	width: 275px;
+	height: 200px;
+	margin-left: 23px;
+}
+.login_inputcont {
+	overflow: hidden;
+	margin-bottom: 7px;
+	width: 275px;
+}
+.login_left_contname {
+	float: left;
+	width: 63px;
+	height: 37px;
+	line-height: 37px;
+	display: inline;
+	text-align: left;
+	color: #010101;
+}
+.login_left_continput {
+	float: left;
+	width: 212px;
+	height: 35px;
+	padding-top: 2px;
+}
+.login_left_continput input {
+	width: 207px;
+	height: 30px;
+	padding: 0px 5px;
+	line-height: 30px;
+	border: 1px solid #ccccc9;
+}
+
+
+.login_left_continput.yzm a {
+	text-decoration: underline;
+}
+
+.login_left_continput.yzm a:hover {
+	text-decoration: none;
+}
+.login_left_continput.yzm a:visited {
+	text-decoration: underline;
+}
+.login_left_continput.yzm input {
+	width: 63px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #ccccc9;
+	padding: 0px 5px 0px 1px;
+	margin-right: 16px;
+}
+
+.login_left_continput.yzm input {
+	width: 63px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #ccccc9;
+	padding: 0px 5px 0px 1px;
+	margin-right: 16px;
+}
+
+.login_allcent_contfont {
+	height: 25px;
+	margin-top: 2px;
+	margin-bottom: 6px;
+	width: 225px;
+	padding-left: 50px;
+}
+.login_allcent_contfont input {
+	border: none;
+	background: none;
+	vertical-align: -3px;
+}
+.login_allcent_contbutton {
+	height: 26px;
+	width: 275px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #e3e3e3;
+	vertical-align: text-bottom
+}
+.login_allcent_contbutton a {
+	text-decoration: underline;
+	margin-left: 10px;
+}
+.login_allcent_contico {
+	border-top: 1px solid #fff;
+	width: 275px;
+	clear: both;
+	margin-left: 23px;
+	overflow: hidden;
+}
+.login_allcent_contico a {
+	color: #000;
+	text-decoration: underline;
+	line-height: 35px;
+}
+.login_allcent_contico a:hover {
+	text-decoration: none;
+}
+.login_allcent_contico a:visited {
+	text-decoration: underline;
+}
+.login_allcent_contico h3 {
+	width: 275px;
+	height: 35px;
+	line-height: 35px;
+}
+.login_allcent_contico p {
+	width: 200px;
+	height: 29px;
+	padding-top: 6px;
+}
+.loginBtn {
+	BORDER-BOTTOM: 0px;
+	BORDER-LEFT: 0px;
+	WIDTH: 97px;
+	BACKGROUND: url(../images/login-btn.gif) no-repeat 0px 0px;
+	FLOAT: left;
+	HEIGHT: 34px;
+	COLOR: #fff;
+	MARGIN-LEFT: 58px;
+	FONT-SIZE: 16px;
+	BORDER-TOP: 0px;
+	CURSOR: pointer;
+	FONT-WEIGHT: bold;
+	BORDER-RIGHT: 0px
+}
+.loginBtn:hover {
+	BACKGROUND: url(../images/login-btn.gif) no-repeat -101px 0px
+}
+
+.partnersTip {
+	WIDTH: 320px; MARGIN-BOTTOM: 0px; COLOR: #666; OVERFLOW: hidden;TEXT-ALIGN: left; PADDING-LEFT: 12px; 
+}
+.partners DT {
+	FLOAT: left
+}
+.partners DD {
+	FLOAT: left
+}
+.partners DD {
+	MARGIN-BOTTOM: 0px; MARGIN-RIGHT: 10px
+}
+.partners DT {
+	WIDTH: 16px; HEIGHT: 16px; MARGIN-RIGHT: 5px
+}
+.partners DT.qqweibo {
+	BACKGROUND: url(../images/icon-site.png) no-repeat 0px 0px
+}
+.partners DT.alipay {
+	BACKGROUND: url(../images/icon-site.png) no-repeat -17px 0px
+}
+.partners DT.taobao {
+	BACKGROUND: url(../images/icon-site.png) no-repeat -36px 0px
+}
+.partners DT.baidu {
+	BACKGROUND: url(../images/icon-site.png) no-repeat -55px 0px
+}
+.partners DT.net163 {
+	BACKGROUND: url(../images/icon-site.png) no-repeat -71px 0px
+}
+.partners DT.safe360 {
+	BACKGROUND: url(../images/icon-site.png) no-repeat -89px 0px
+}
+.partners DT.qq {
+	BACKGROUND: url(../images/icon-site.png) no-repeat -108px 0px
+}
+.partners DT.sina {
+	BACKGROUND: url(../images/icon-site.png) no-repeat -127px 0px
+}
+.partners DT.un {
+	BACKGROUND: url(../images/icon-site.png) no-repeat -145px 0px ;
+}

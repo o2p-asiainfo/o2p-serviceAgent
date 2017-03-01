@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>用户登录</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link rel="icon" type="image/x-icon" href="../resource/orange/images/un/favicon.ico" mce_href="../resource/orange/images/un/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="../resource/orange/images/un/favicon.ico" mce_href="../resource/orange/images/un/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../resource/orange/css/auth.css" />
+
+</head>
+
+<body onload="errorPrompt();loadjajs();">
+<input id="userInfo" type="hidden" 
+name="userInfo" />
+<input id="productType" type="hidden" name="productType" />
+<input 
+id="areaCode" type="hidden" name="areaCode" />
+<input id="pwdType" value="01" type="hidden" 
+name="pwdType" />
+<input id="redirectURL" type="hidden" name="redirectURL" />
+<input 
+id="redirectType" value="MALLLOGIN" type="hidden" name="redirectType" />
+<input 
+id="lastEmail" type="hidden" name="lastEmail" />
+<!--header--><!--头部-->
+<div class="headLoadLogin">
+  <div id="header" class="headerStyle">
+    <div class="logoLogin"><a href="http://www.10010.com/"><img 
+src="../resource/orange/images/un/logo.png" /></a> </div>
+  </div>
+</div>
+<!--头部--><!--分割-->
+<div class="divide center980"></div>
+<!--分割-->
+<div class="loginRegisterContent center980"><!--banner-->
+  <div class="banner"></div>
+  <!--banner end--><!--登录注册区-->
+  <div class="loginRegister">
+    <ul id="loginRegisterNav" class="loginRegisterNav loginNavBg">
+    </ul>
+    <div id="loginBox" class="loginBox">
+      <div class="divClear divClearMargin15"><span>用&nbsp;&nbsp;户&nbsp;&nbsp;名</span>
+        <input onblur="checkUserName();" id="userName" class="inputW140H24 bcC" tabindex="1" 
+maxlength="50" name="userName" autocomplete="off" placeholder="邮箱/手机/固网(无区号)" />
+        <label style="DISPLAY: none" id="userNameError" class="redError">请输入用户名</label>
+      </div>
+      <div style="DISPLAY: none" 
+class="divClear mobleShow divClearMargin15"><span>固网类型</span>
+        <select id="tel" 
+class="inputW70H24No selectHeight" tabindex="2" name="tel">
+          <option selected="selected" 
+  value="02">固话</option>
+          <option value="03">小灵通</option>
+          <option 
+  value="04">宽带ADSL</option>
+          <option value="07">宽带LAN</option>
+        </select>
+        <div style="DISPLAY: none" class="cityShow"><span>地区</span>
+          <input id="arrcity" 
+class="inputW70H24 bcC" tabindex="3" name="arrcity" />
+          <input id="arrcityWord" 
+type="hidden" name="arrcityWord" />
+          <div style="DISPLAY: none" id="addressHot" class="addressHot">
+            <div class="addressHotcity"><strong>热门城市</strong> （可直接输入城市或城市拼音）</div>
+            <div class="addressHotlist">
+              <ul class="addressHotAdress layoutfix" type="热门">
+                <li><a href="javascript:areaCode(110);" data="BJS|北京">北京</a> </li>
+                <li><a href="javascript:areaCode(310);" data="SHA|上海">上海</a> </li>
+                <li><a href="javascript:areaCode(510);" data="CAN|广州">广州</a> </li>
+                <li><a href="javascript:areaCode(540);" data="SZX|深圳">深圳</a> </li>
+                <li><a href="javascript:areaCode(810);" data="CTU|成都">成都</a> </li>
+                <li><a href="javascript:areaCode(360);" data="HGH|杭州">杭州</a> </li>
+                <li><a href="javascript:areaCode(710);" data="WUH|武汉">武汉</a> </li>
+                <li><a href="javascript:areaCode(841);" data="SIA|西安">西安</a> </li>
+                <li><a href="javascript:areaCode(831);" data="CKG|重庆">重庆</a> </li>
+                <li><a href="javascript:areaCode(166);" data="TAO|青岛">青岛</a> </li>
+                <li><a href="javascript:areaCode(741);" data="CSX|长沙">长沙</a> </li>
+                <li><a href="javascript:areaCode(340);" data="NKG|南京">南京</a> </li>
+                <li><a href="javascript:areaCode(390);" data="XMN|厦门">厦门</a> </li>
+                <li><a href="javascript:areaCode(860);" data="KMG|昆明">昆明</a> </li>
+              </ul>
+            </div>
+          </div>
+</div>
+        <div>
+          <label style="DISPLAY: none" id="cityError" 
+class="redError">请选择地区</label>
+        </div>
+      </div>
+      <div class="divClear divClearMargin15"><span class="loginPwd">登录密码</span>
+        <input 
+onblur="checkPassword();checkPwd();" id="password" class="inputW140H24 bcC" 
+tabindex="4" maxlength="16" type="password" name="password" />
+        <a style="DISPLAY: none" 
+id="sendPwd" class="forgetPassword fontC36cS12" 
+onclick="sendRandomPWD();return false;" href="javascript:void(0)">忘记密码？</a>
+        <label style="DISPLAY: none" id="passwordError" class="redError">请输入密码</label>
+      </div>
+      <div class="divClear divClearMargin15"><span>验&nbsp;&nbsp;证&nbsp;&nbsp;码</span>
+        <input style="IME-MODE: disabled" id="verifyCode" class="inputW50H24 bcC" 
+tabindex="5" maxlength="4" name="verifyCode" />
+        <img 
+style="BORDER-BOTTOM: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-RIGHT: #000000 1px solid" 
+id="captchaImg" onclick="holdVerify('1');" name="captchaImg" alt="请输入验证码" src="" 
+width="70" height="24" /> <a style="CURSOR: pointer; TEXT-DECORATION: none" 
+id="changeVerifyCode" class="fontC36cS12" onclick="holdVerify('1');" 
+name="changeVerifyCode">换一张</a>
+        <input value="ZJ2t2ofiM9Ikpv4JE8Dctg==" type="hidden" 
+name="configKey" />
+        <label style="DISPLAY: none" id="verifyCodeError" 
+class="redError">请输入验证码</label>
+        <label style="DISPLAY: none" id="errorMsg" 
+class="redError"></label>
+      </div>
+      <div class="divClear">
+        <div class="options">
+          <input id="rememberMe" onclick="rememberMe();" value="0" 
+type="checkbox" name="rememberMe" />
+          <label>记住用户名</label>
+        </div>
+      </div>
+      <div class="divClear">
+        <input id="userLogin" class="loginBtn" tabindex="6" onclick="checkLoginSubmit()" value="登  录" type="button" />
+        <input id="loginType" value="02" type="hidden" />
+        <div class="loginAth"><a class="fontC36cS12" 
+href="https://uac.10010.com/portal/register.html">注册</a>|<a id="resetPwd" 
+class="fontC36cS12" onclick="resetPwd();" href="javascript:void(0)" 
+target="_blank">忘记密码?</a></div>
+      </div>
+    </div>
+    <div class="boxBottom"></div>
+  </div>
+  <!--登录注册区结束--></div>
+<!--login content end-->
+<div id="suggest" class="acResults"></div>
+<!--footer-->
+<div class="sectionFooter" id="footer">
+  <div class="footer_c"  > Copyright © 2012 - 2013 中国联通 All Rights Reserved </div>
+</div>
+
+<!--footer end-->
+
+<div style="DISPLAY: none" id="frontPopDiv" class="tipsLayer layerIndex">
+  <div class="tipsLayerT ie6Png"><span>提示</span>
+    <label class="closeT"></label>
+  </div>
+  <div class="tipsLayerM ie6Png">
+    <p class="textCenter">随机密码已经发送到您的手机，请注意查收！</p>
+    <div class="layerBtn"><a href="javascript:void(0)" 
+name="closeBtn" class="blueBtn marginLeft" id="closeBtn">确认</a></div>
+  </div>
+  <div class="tipsLayerB ie6Png"></div>
+</div>
+<div style="DISPLAY: none; HEIGHT: 4844px" class="thickdiv"></div>
+<script type="text/javascript" src="../resource/orange/js/auth.js"></script> 
+<script type="text/javascript" src="../resource/orange/js/google.js"></script> 
+<script type="text/javascript">
+$(function(){
+$("#arrcity").suggest(citys,{hot_list:commoncitys,dataContainer:'#arrcityWord', attachObject:'#suggest'});
+});
+</script> 
+<!--[if IE 6]>
+<script language="javascript" type="text/javascript" src="../resource/orange/js/ie6_png.js"></script>
+<script language="javascript" type="text/javascript">
+    DD_belatedPNG.fix(".ie6Png");
+</script>
+<![endif]-->
+</body>
+</html>

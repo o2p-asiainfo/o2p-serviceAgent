@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	
+	<bean name="cacheService" class="com.asiainfo.integretion.o2p.serviceagent.cache.CacheServiceImpl">
+		
+		<property name="cacheFactory">
+			<ref bean="cacheFactory"/>
+		</property>
+		<property name="transactionIdCacheTime"><value>${transactionIdCacheTime}</value></property>
+	</bean>
+	
+	<bean name="reloadCache" class="com.asiainfo.integretion.o2p.serviceagent.cache.ReloadCache">
+		<property name="serviceAgentMode">
+        	<value>${serviceAgent.mode}</value>
+        </property>
+        <property name="deapth">
+        	<value>${deapth}</value>
+        </property>
+		<property name="cacheService"><ref bean="cacheService"/></property>
+		<property name="javaQueueHelper"><ref bean="javaQueueHelper"/></property>
+	</bean>
+	<bean name="cacheThreades" class="com.ailk.eaap.o2p.common.cache.CacheThread">
+		<property name="refreshTime"><value>${localCache.refresh.time}</value></property>
+	    <property name="reloadCache"><ref bean="reloadCache"/></property>
+	</bean>
+	<bean name="threadManagerServices" class="com.ailk.eaap.o2p.common.cache.ThreadManagerServiceImpl">
+	    <property name="cacheThreades"><ref bean="cacheThreades"/></property>
+	</bean>
+</beans>

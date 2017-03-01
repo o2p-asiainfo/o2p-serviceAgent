@@ -1,0 +1,24 @@
+<!-- Load javascripts at bottom, this will reduce page load time -->
+<!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
+<!--[if lt IE 9]>
+<script src="../resource/plugins/respond.min.js"></script>  
+<![endif]-->
+<script src="../resource/plugins/jquery-1.10.2.min.js"></script>
+<script src="../resource/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../resource/plugins/back-to-top.js"></script>
+<script src="../resource/plugins/bootbox/bootbox.min.js"></script>
+<script src="../resource/plugins/bootstrap-toastr/toastr.min.js"></script>
+<script src="../resource/plugins/bootstrap-modal/js/bootstrap-modalmanager.js"></script>
+<script src="../resource/plugins/bootstrap-modal/js/bootstrap-modal.js"></script>
+<script src="../resource/plugins/uniform/jquery.uniform.min.js"></script>
+<script src="../resource/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../resource/plugins/template.js"></script>
+<script src="../resource/plugins/underscore.min.js"></script>
+<script src="../resource/plugins/underscore-o2p.js"></script>
+<script src="../resource/plugins/jquery-validation/jquery.validate.min.js"></script>
+<!-- build:remove -->
+<!-- /build -->
+<script src="../resource/i18n/language-en.js"></script>
+<script src="../resource/scripts/app.js"></script>
+<!-- build:remove -->
+<!-- /build -->

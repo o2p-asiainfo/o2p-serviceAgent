@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+	
+<struts>
+	<package name="oauth2" extends="struts-default" namespace="/oauth2">
+		<action name="write" class="com.asiainfo.integration.o2p.serviceAgent.oauth2.action.Oauth2Action" method="write" />
+		
+		<action name="login" class="com.asiainfo.integration.o2p.serviceAgent.oauth2.action.Oauth2Action" method="login" />
+		
+		<action name="authorize" class="com.asiainfo.integration.o2p.serviceAgent.oauth2.action.Oauth2Action" method="authorize" />
+		
+		<action name="manage" class="com.asiainfo.integration.o2p.serviceAgent.oauth2.action.Oauth2Action" method="manage">
+			<result name="manage">/oauth2/manage.jsp</result>
+			<result name="loginPage">/oauth2/login.jsp</result>
+		</action>
+		
+		<action name="loginPage" class="com.asiainfo.integration.o2p.serviceAgent.oauth2.action.Oauth2Action" method="loginPage">
+			<result name="loginPage">/oauth2/login.jsp</result>
+		</action>
+		
+		<action name="exit" class="com.asiainfo.integration.o2p.serviceAgent.oauth2.action.Oauth2Action" method="exit">
+			<result name="success">/oauth2/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="auth" extends="struts-default" namespace="/">
+		<!-- <interceptors>
+			<interceptor name="AuthInterceptor"
+				class="com.ailk.eaap.op2.portal.auth.action.AuthInterceptor"></interceptor>
+			<interceptor-stack name="methodStack">
+				<interceptor-ref name="AuthInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors> -->
+		
+		<action name="authorize" class="com.ailk.eaap.op2.serviceagent.auth.action.AuthorizeAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">login</param>
+			</result>
+			<result name="login">/auth/login.jsp</result>
+			<result name="redirectUrl" type="redirect">${redirectUrl}</result>
+		</action>
+
+		<action name="auth" class="com.ailk.eaap.op2.serviceagent.auth.action.OAuthAction" method="auth">
+			<result name="page">/auth/auth_pc_web.jsp</result>
+			<result name="mobile">/auth/auth_phone.jsp</result>
+			<result name="touch">/auth/auth_phone.jsp</result>
+			<result name="redirectUrl" type="redirect">${redirectUrl}</result>
+		</action>		
+		
+		<action name="ticket" class="com.ailk.eaap.op2.serviceagent.auth.action.TicketAction">
+			
+			<result name="login">/auth/login_pc_web.jsp</result>
+			<result name="redirectUrl" type="redirect">${redirectUrl}</result>
+			
+		</action>
+		
+		<action name="login" class="com.ailk.eaap.op2.serviceagent.auth.action.LoginAction">
+			
+			<result name="login1">/auth/login.jsp</result>
+			<result name="loginPage">/auth/login_pc_web.jsp</result>
+			<result name="loginTouch">/auth/login_phone.jsp</result>
+			<result name="redirectUrl" type="redirect">${redirectUrl}</result>
+			
+		</action>
+
+		<action name="AuthAction" class="com.ailk.eaap.op2.serviceagent.auth.action.AuthAction">
+			<result name="success" type="redirect">${redirectUrl}</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">login</param>
+			</result>
+			<result name="login">/auth/login.jsp</result>
+			<result name="custCenter">/cust/index.jsp</result>
+		</action>
+		
+		<action name="access_token" class="com.ailk.eaap.op2.serviceagent.auth.action.AccessTokenAction">
+			<result name="redirectUrl" type="redirect">${redirectUrl}</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">login</param>
+			</result>
+			<result name="login">/auth/login.jsp</result>
+		</action>
+		
+		<action name="custAction" class="com.ailk.eaap.op2.serviceagent.cust.action.CustAction">
+			<result name="login">/auth/login.jsp</result>
+			<result name="custCenter">/cust/index.jsp</result>
+		</action>
+		
+		
+		<action name="cancelAuth" class="com.ailk.eaap.op2.serviceagent.cust.action.CancelAuthAction">
+			<result name="success">/cust/index.jsp</result>
+			<result name="login">/auth/login.jsp</result>
+		</action>
+		
+<!-- 		<action name="testQuery" class="com.ailk.eaap.op2.portal.test.action.TestQuery">
+			<result name="success" type="redirect">${requesturl}</result>
+			<result name="error">/auth/login.jsp</result>
+			<result name="result">/auth/getresult.jsp</result>
+			
+		</action>
+		<action name="getCode" class="com.ailk.eaap.op2.portal.test.action.GetCode">
+			<result name="success" type="plainText">
+			</result>
+		</action> -->
+
+		<action name="clearCache" class="com.ailk.eaap.op2.serviceagent.refresh.action.ClearCacheAction">
+			<result name="success">/refresh/refresh.jsp</result>
+		</action>
+
+
+		<action name="clearMemcached" class="com.ailk.eaap.op2.serviceagent.refresh.action.ClearMemcacheAction">
+			<result name="success">/refresh/refresh.jsp</result>
+		</action>
+		
+		<action name="refreshtoken" class="com.ailk.eaap.op2.serviceagent.refresh.action.RefreshTokenAction">
+			<result name="success">/refresh/refresh.jsp</result>
+		</action>
+	 </package>
+</struts>

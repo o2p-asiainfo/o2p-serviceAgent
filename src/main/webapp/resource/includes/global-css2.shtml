@@ -1,0 +1,9 @@
+  <link href="../resource/css/style-template.css" rel="stylesheet" />
+  <link href="../resource/css/style.css" rel="stylesheet" />
+  <link href="../resource/css/themes/blue.css" rel="stylesheet" id="style_color" />
+  <link href="../resource/css/style-responsive.css" rel="stylesheet" />
+  <link href="../resource/css/custom.css" rel="stylesheet" />
+  <script>
+   var APP_PATH = "${APP_PATH}";
+   var transferData="../resource/front/transferData?url=";
+  </script>

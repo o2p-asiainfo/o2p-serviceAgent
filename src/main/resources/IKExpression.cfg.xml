@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<function-configuration>
+	<!-- 系统函数默认配置 -->
+	<bean class="org.wltea.expression.function.SystemFunctions">
+		<function name="CONTAINS" method="contains">
+			<parameter-type>java.lang.String</parameter-type>
+			<parameter-type>java.lang.String</parameter-type>
+		</function>
+		<function name="STARTSWITH" method="startsWith">
+			<parameter-type>java.lang.String</parameter-type>
+			<parameter-type>java.lang.String</parameter-type>
+		</function>
+		<function name="ENDSWITH" method="endsWith">
+			<parameter-type>java.lang.String</parameter-type>
+			<parameter-type>java.lang.String</parameter-type>
+		</function>
+		<function name="CALCDATE" method="calcDate">
+			<parameter-type>java.util.Date</parameter-type>
+			<parameter-type>int</parameter-type>
+			<parameter-type>int</parameter-type>
+			<parameter-type>int</parameter-type>
+			<parameter-type>int</parameter-type>
+			<parameter-type>int</parameter-type>
+			<parameter-type>int</parameter-type>
+		</function>
+		<function name="SYSDATE" method="sysDate" />
+		<function name="DAYEQUALS" method="dayEquals">
+			<parameter-type>java.util.Date</parameter-type>
+			<parameter-type>java.util.Date</parameter-type>
+		</function>
+	</bean>
+
+	<!-- 用户函数配置 ，请在这里定制您自己的函数 -->
+
+	<bean class="com.ailk.eaap.o2p.util.file.remote.session.http.HttpSession">
+		<function name="getCurrTime" method="getCurrTime">
+			<parameter-type>java.lang.String</parameter-type>
+		</function>
+	</bean>
+	
+	<bean class="com.ailk.eaap.o2p.util.file.remote.session.http.HttpSession">
+		<function name="getCurrTime" method="getCurrTime">
+			<parameter-type>java.lang.String</parameter-type>
+		</function>
+		<function name="changeSuffix" method="changeSuffix">
+			<parameter-type>java.lang.String</parameter-type>
+		</function>
+	</bean>
+	
+	<bean class="com.ailk.eaap.o2p.common.util.SelfFunc">  
+        <function name="concat" method="concat">
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>  
+        </function>  
+    </bean> 
+      
+    <bean class="com.ailk.eaap.o2p.common.util.SelfFunc">  
+        <function name="subString" method="subString">
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>int</parameter-type>
+            <parameter-type>int</parameter-type>  
+        </function>  
+    </bean>
+      
+    <bean class="com.ailk.eaap.o2p.common.util.SelfFunc">  
+        <function name="lower" method="lower">
+            <parameter-type>java.lang.String</parameter-type>  
+        </function>  
+    </bean>
+      
+    <bean class="com.ailk.eaap.o2p.common.util.SelfFunc">  
+        <function name="upper" method="upper">
+            <parameter-type>java.lang.String</parameter-type>
+        </function>  
+    </bean>
+    
+    <bean class="com.ailk.eaap.o2p.common.util.SelfFunc">  
+        <function name="dateFormat" method="dateFormat">
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+        </function>  
+    </bean>
+    
+    <bean class="com.ailk.eaap.o2p.common.util.SelfFunc">  
+        <function name="sysdate" method="sysdate">
+            <parameter-type>java.lang.String</parameter-type>
+        </function>  
+    </bean>
+    
+    <bean class="com.ailk.eaap.o2p.common.util.SelfFunc">  
+        <function name="md5" method="Md5">
+            <parameter-type>java.lang.String</parameter-type>
+            <parameter-type>java.lang.String</parameter-type>
+        </function>  
+    </bean>
+</function-configuration>  
